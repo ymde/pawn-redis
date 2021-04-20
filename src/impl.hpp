@@ -80,6 +80,7 @@ int SetInt(int client_id, std::string key, int value);
 int GetInt(int client_id, std::string key, int& value);
 int SetFloat(int client_id, std::string key, float value);
 int GetFloat(int client_id, std::string key, float& value);
+int Del(int client_id, std::string key);
 
 int SetHString(int client_id, std::string key, std::string field, std::string value);
 int GetHString(int client_id, std::string key, std::string field, std::string& value);

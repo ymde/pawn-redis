@@ -58,6 +58,7 @@ native Redis_SetInt(Redis:client, const key[], value);
 native Redis_GetInt(Redis:client, const key[], &value);
 native Redis_SetFloat(Redis:client, const key[], Float:value);
 native Redis_GetFloat(Redis:client, const key[], &Float:value);
+native Redis_Del(Redis:client, const key[]);
 
 native Redis_SetHString(Redis:client, const key[], const field[], const value[]);
 native Redis_SetHInt(Redis:client, const key[], const field[], value);

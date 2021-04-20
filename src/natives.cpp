@@ -174,6 +174,24 @@ cell Natives::GetInt(AMX* amx, cell* params)
     return ret;
 }
 
+cell Natives::Del(AMX* amx, cell* params)
+{
+    int context_id = params[1];
+    string key = amx_GetCppString(amx, params[2]);
+
+    int ret;
+    
+    try {
+        ret = Impl::Del(context_id, key);
+    }
+    catch (cpp_redis::redis_error e) {
+        logprintf("ERROR: %s", e.what());
+        return 1;
+    }
+
+    return ret;
+}
+
 cell Natives::SetFloat(AMX* amx, cell* params)
 {
     int context_id = params[1];

@@ -269,6 +269,26 @@ int Impl::GetFloat(int client_id, std::string key, float& value)
     return 0;
 }
 
+int Impl::Del(int client_id, std::string key)
+{
+    cpp_redis::client* client;
+    int err = clientFromID(client_id, client);
+    if (err) {
+        return 1;
+    }
+
+    auto req = client->del(std::vector<std::string>{ key });
+    client->sync_commit();
+    auto r = req.get();
+
+    if (r.is_error()) {
+        logprintf("ERROR: %s", r.error().c_str());
+        return 1;
+    }
+
+    return 0;
+}
+
 int Impl::SetHString(int client_id, std::string key, std::string field, std::string value)
 {
     cpp_redis::client* client;

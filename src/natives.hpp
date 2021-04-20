@@ -57,6 +57,7 @@ cell SetInt(AMX* amx, cell* params);
 cell GetInt(AMX* amx, cell* params);
 cell SetFloat(AMX* amx, cell* params);
 cell GetFloat(AMX* amx, cell* params);
+cell Del(AMX* amx, cell* params);
 
 cell SetHString(AMX* amx, cell* params);
 cell SetHInt(AMX* amx, cell* params);
